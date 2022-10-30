@@ -1,0 +1,17 @@
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\bin\Debug\GestaoFinanceira.exe.config
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\bin\Debug\GestaoFinanceira.exe
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\bin\Debug\GestaoFinanceira.pdb
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.AssemblyReference.cache
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\MainWindow.g.cs
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\App.g.cs
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira_MarkupCompile.cache
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira_MarkupCompile.lref
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\MainWindow.baml
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.g.resources
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.Properties.Resources.resources
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.GenerateResource.cache
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.CoreCompileInputs.cache
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.exe
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.pdb
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\Overview.g.cs
+C:\Users\renat\source\repos\GestaoFinanceira\GestaoFinanceira\obj\Debug\Overview.baml
