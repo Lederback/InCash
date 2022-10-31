@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:GestaoFinanceira"
         mc:Ignorable="d"
         Title="Overview" Height="500" Width="800" Background="#1E1E1E" ResizeMode="NoResize" FontFamily="Montserrat">
@@ -114,8 +115,42 @@
                     </Canvas>
                 </Button>
             </Grid>
-            <StackPanel>
-                
+            <StackPanel Height="431" Orientation="Vertical">
+                <lvc:PieChart Width="275" Height="225" x:Name="doughnut"
+                              Series="{Binding seriesCollection}"
+                              LegendLocation="Right"
+                              InnerRadius="30"
+                              Foreground="White" Margin="184,0">
+                    <lvc:PieChart.ChartLegend>
+                        <lvc:DefaultLegend BulletSize="20"/>
+                    </lvc:PieChart.ChartLegend>
+                </lvc:PieChart>
+                <Grid Height="206">
+                    <Border Width="225" Height="75" Background="#181818" CornerRadius="5,5,5,5" Margin="63,2,356,129">
+                        <Grid>
+                            <TextBlock Foreground="White" Margin="48,21,49,38"><Run Text="Total recebido esse mês:"/></TextBlock>
+                            <TextBlock x:Name="received" Foreground="#72F85D" TextAlignment="Center" Margin="0,37,0,26"><Run Text="R$ 1000,00"/></TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border Width="225" Height="75" Background="#181818" CornerRadius="5" Margin="63,106,356,25">
+                        <Grid>
+                            <TextBlock Foreground="White" Margin="57,21,57,38"><Run Text="Total gasto esse mês:"/></TextBlock>
+                            <TextBlock x:Name="paid" Foreground="#FF4236" TextAlignment="Center" Margin="0,37,0,26"><Run Text="R$ 1000,00"/></TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border Width="225" Height="75" Background="#181818" CornerRadius="5" Margin="350,2,69,129">
+                        <Grid>
+                            <TextBlock Foreground="White" Margin="53,21,53,38"><Run Text="Saldo do mês anterior:"/></TextBlock>
+                            <TextBlock x:Name="lastMonth" Foreground="#5DDCF8" TextAlignment="Center" Margin="0,37,0,26"><Run Text="R$ 1000,00"/></TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border Width="225" Height="75" Background="#181818" CornerRadius="5" Margin="350,106,69,25">
+                        <Grid>
+                            <TextBlock Foreground="White" Margin="69,21,69,38"><Run Text="Saldo mês atual:"/></TextBlock>
+                            <TextBlock x:Name="actualMonth" Foreground="#FFB800" TextAlignment="Center" Margin="0,37,0,26"><Run Text="R$ 1000,00"/></TextBlock>
+                        </Grid>
+                    </Border>
+                </Grid>
             </StackPanel>
         </StackPanel>
     </StackPanel>
