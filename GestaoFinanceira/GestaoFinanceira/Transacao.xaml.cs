@@ -23,5 +23,17 @@ namespace GestaoFinanceira
         {
             InitializeComponent();
         }
+
+        private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            (sender as Button).Foreground = Brushes.Black;
+        }
+
+        private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Color color = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+            Brush brush = new SolidColorBrush(color);
+            (sender as Button).Foreground = brush;
+        }
     }
 }
