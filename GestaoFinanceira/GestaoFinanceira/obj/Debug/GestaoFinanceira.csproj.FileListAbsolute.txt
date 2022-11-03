@@ -65,3 +65,4 @@ C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\D
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.CopyComplete
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.exe
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.pdb
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.SuggestedBindingRedirects.cache
