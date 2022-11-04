@@ -1,4 +1,5 @@
-﻿using FinanceAPI.Models;
+﻿using FinanceAPI.Interfaces;
+using FinanceAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,22 +10,39 @@ namespace FinanceAPI.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly DataContext _dataContext;
+        private readonly ITransactionService _transaction;
 
-        public TransactionController(DataContext dataContext)
+        public TransactionController(DataContext dataContext, ITransactionService transaction)
         {
             _dataContext = dataContext;
+            _transaction = transaction;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Transaction>>> Get()
         {
-            return Ok(await _dataContext.Transactions.ToListAsync());
+            var transactions = await _transaction.GetAllTransactions();
+
+            return Ok(transactions);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Transaction>>> Get(int id)
+        public async Task<ActionResult<List<Transaction>>> GetByUserId(int id)
         {
-            var transaction = await _dataContext.Transactions.FindAsync(id);
+            var transaction = await _transaction.GetByUserId(id);
+
+            if (transaction == null)
+            {
+                return BadRequest("Transaction not found.");
+            }
+
+            return Ok(transaction);
+        }
+        
+        [HttpGet("{id}/{date}")]
+        public async Task<ActionResult<List<Transaction>>> GetByDate(int id, DateTime date)
+        {
+            var transaction = await _transaction.GetByDate(id, date);
 
             if (transaction == null)
             {
@@ -37,47 +55,37 @@ namespace FinanceAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Transaction>>> AddTransaction([FromBody]Transaction transaction)
         {
-            _dataContext.Transactions.Add(transaction);
-            await _dataContext.SaveChangesAsync();
+            await _transaction.AddTransaction(transaction);
 
-            return Ok(await _dataContext.Transactions.ToListAsync());
+            return Ok();
         }
 
-        [HttpPut]
-        public async Task<ActionResult<List<Transaction>>> UpdateTransaction(Transaction request)
-        {
-            var dbTransaction = await _dataContext.Transactions.FindAsync(request.Id);
+        //[HttpPut]
+        //public async Task<ActionResult<List<Transaction>>> UpdateTransaction(Transaction request)
+        //{
+        //    var dbTransaction = await _dataContext.Transactions.FindAsync(request.Id);
 
-            if (dbTransaction == null)
-            {
-                return BadRequest("Transaction not found.");
-            }
+        //    if (dbTransaction == null)
+        //    {
+        //        return BadRequest("Transaction not found.");
+        //    }
 
-            dbTransaction.Value = request.Value;
-            dbTransaction.Description = request.Description;
-            dbTransaction.Date = request.Date;
-            dbTransaction.TypeTransaction = request.TypeTransaction;
+        //    dbTransaction.Value = request.Value;
+        //    dbTransaction.Description = request.Description;
+        //    dbTransaction.Date = request.Date;
+        //    dbTransaction.TypeTransaction = request.TypeTransaction;
 
-            await _dataContext.SaveChangesAsync();
+        //    await _dataContext.SaveChangesAsync();
 
-            return Ok(await _dataContext.Transactions.ToListAsync());
-        }
+        //    return Ok(await _dataContext.Transactions.ToListAsync());
+        //}
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Transaction>>> DeleteTransaction(int id)
         {
-            var dbTransaction = await _dataContext.Transactions.FindAsync(id);
+            await _transaction.DeleteTransaction(id);
 
-            if (dbTransaction == null)
-            {
-                return BadRequest("Transaction not found.");
-            }
-
-            _dataContext.Transactions.Remove(dbTransaction);
-
-            await _dataContext.SaveChangesAsync();
-
-            return Ok(await _dataContext.Transactions.ToListAsync());
+            return Ok();
         }
     }
 }
