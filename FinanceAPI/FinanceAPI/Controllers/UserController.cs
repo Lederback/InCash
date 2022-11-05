@@ -1,4 +1,5 @@
 ﻿using FinanceAPI.Data;
+using FinanceAPI.Dtos;
 using FinanceAPI.Interfaces;
 using FinanceAPI.Models;
 using Microsoft.AspNetCore.Http;
@@ -18,7 +19,7 @@ namespace FinanceAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<User>>> Get()
+        public async Task<ActionResult<List<UserResDto>>> Get()
         {
             var user = await _userService.GetAllUsers();
 
@@ -28,11 +29,21 @@ namespace FinanceAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Transaction>>> AddUser([FromBody] User user)
+        public async Task<ActionResult<List<Transaction>>> AddUser([FromBody] UserReqDto user)
         {
             await _userService.AddUser(user);
 
             return Ok();
+        }
+
+        [HttpPost("Login")]
+        public async Task<ActionResult<string>> UserLogin(UserReqDto user)
+        {
+            var token = await _userService.UserLogin(user);
+
+            if (token == "") return BadRequest("Usuário ou senha inválidos.");
+
+            return Ok(token);
         }
     }
 }

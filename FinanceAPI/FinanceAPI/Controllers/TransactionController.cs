@@ -52,7 +52,7 @@ namespace FinanceAPI.Controllers
             return Ok(transaction);
         }
 
-        [HttpPost]
+        [HttpPost("Insert")]
         public async Task<ActionResult<List<Transaction>>> AddTransaction([FromBody]Transaction transaction)
         {
             await _transaction.AddTransaction(transaction);
@@ -80,7 +80,7 @@ namespace FinanceAPI.Controllers
         //    return Ok(await _dataContext.Transactions.ToListAsync());
         //}
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public async Task<ActionResult<List<Transaction>>> DeleteTransaction(int id)
         {
             await _transaction.DeleteTransaction(id);

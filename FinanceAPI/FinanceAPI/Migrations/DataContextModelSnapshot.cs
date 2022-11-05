@@ -47,8 +47,6 @@ namespace FinanceAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Transactions");
                 });
 
@@ -63,26 +61,17 @@ namespace FinanceAPI.Migrations
                     b.Property<string>("Login")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("FinanceAPI.Models.Transaction", b =>
-                {
-                    b.HasOne("FinanceAPI.Models.User", null)
-                        .WithMany("Transaction")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FinanceAPI.Models.User", b =>
-                {
-                    b.Navigation("Transaction");
                 });
 #pragma warning restore 612, 618
         }
