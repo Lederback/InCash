@@ -1,4 +1,5 @@
-﻿using FinanceAPI.Interfaces;
+﻿using FinanceAPI.Dtos;
+using FinanceAPI.Interfaces;
 using FinanceAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
@@ -15,19 +16,27 @@ namespace FinanceAPI.Services
             _dataContext = dataContext;
         }
 
-        public async Task<List<Transaction>> GetAllTransactions()
+        public async Task<List<TransactionResDto>> GetAllTransactions()
         {
-            var transactions = await _dataContext.Transactions.ToListAsync();
+            var transactions = await _dataContext.Transactions.Select(t => new TransactionResDto
+            {
+                Id = t.Id,
+                Date = t.Date,
+                Value = t.Value,
+                Description = t.Description,
+                TypeTransaction = t.TypeTransaction,
+                UserId = t.UserId
+            }).ToListAsync();
 
             if (transactions == null) return null;
 
             return transactions;
         }
 
-        public async Task<List<Transaction>> GetByUserId(int id)
+        public async Task<List<TransactionResDto>> GetByUserId(int id)
         {
             var transaction = await _dataContext.Transactions.Where(t => t.UserId == id)
-                           .Select(t => new Transaction
+                           .Select(t => new TransactionResDto
                            {
                                Id = t.Id,
                                Date = t.Date,
@@ -40,10 +49,10 @@ namespace FinanceAPI.Services
             return transaction;
         }
 
-        public async Task<List<Transaction>> GetByDate(int id, DateTime date)
+        public async Task<List<TransactionResDto>> GetByDate(int id, DateTime date)
         {
             var transaction = await _dataContext.Transactions.Where(t => t.UserId == id && t.Date.Month == date.Month && t.Date.Year == date.Year)
-                           .Select(t => new Transaction
+                           .Select(t => new TransactionResDto
                            {
                                Id = t.Id,
                                Date = t.Date,
@@ -56,8 +65,17 @@ namespace FinanceAPI.Services
             return transaction;
         }
 
-        public async Task AddTransaction(Transaction transaction)
+        public async Task AddTransaction(TransactionReqDto request)
         {
+            Transaction transaction = new Transaction()
+            {
+                Date = request.Date,
+                Value = request.Value,
+                Description = request.Description,
+                TypeTransaction = request.TypeTransaction,
+                UserId = request.UserId,
+            };
+
             _dataContext.Transactions.Add(transaction);
             await _dataContext.SaveChangesAsync();
         }

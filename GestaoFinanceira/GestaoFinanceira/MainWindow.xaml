@@ -116,7 +116,7 @@
         <Button
             Width="320" Height="30" Content="Login" 
             Background="#FFB800" Foreground="#0D0D0D" 
-            FontWeight="Bold" Margin="0, 40, 0, 0" Cursor="Hand" Style="{DynamicResource ButtonStyle1}">
+            FontWeight="Bold" Margin="0, 40, 0, 0" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Click="LoginButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

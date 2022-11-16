@@ -6,6 +6,6 @@ namespace FinanceAPI.Dtos
     {
         public int Id { get; set; }
         public string? Login { get; set; }
-        public List<Transaction>? Transactions { get; set; }
+        public List<TransactionResDto>? Transactions { get; set; }
     }
 }

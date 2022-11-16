@@ -1,4 +1,5 @@
-﻿using FinanceAPI.Interfaces;
+﻿using FinanceAPI.Dtos;
+using FinanceAPI.Interfaces;
 using FinanceAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ namespace FinanceAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Transaction>>> Get()
+        public async Task<ActionResult<List<TransactionResDto>>> Get()
         {
             var transactions = await _transaction.GetAllTransactions();
 
@@ -27,7 +28,7 @@ namespace FinanceAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Transaction>>> GetByUserId(int id)
+        public async Task<ActionResult<List<TransactionResDto>>> GetByUserId(int id)
         {
             var transaction = await _transaction.GetByUserId(id);
 
@@ -40,7 +41,7 @@ namespace FinanceAPI.Controllers
         }
         
         [HttpGet("{id}/{date}")]
-        public async Task<ActionResult<List<Transaction>>> GetByDate(int id, DateTime date)
+        public async Task<ActionResult<List<TransactionResDto>>> GetByDate(int id, DateTime date)
         {
             var transaction = await _transaction.GetByDate(id, date);
 
@@ -53,7 +54,7 @@ namespace FinanceAPI.Controllers
         }
 
         [HttpPost("Insert")]
-        public async Task<ActionResult<List<Transaction>>> AddTransaction([FromBody]Transaction transaction)
+        public async Task<ActionResult<List<TransactionResDto>>> AddTransaction([FromBody]TransactionReqDto transaction)
         {
             await _transaction.AddTransaction(transaction);
 
@@ -81,7 +82,7 @@ namespace FinanceAPI.Controllers
         //}
 
         [HttpDelete("Delete/{id}")]
-        public async Task<ActionResult<List<Transaction>>> DeleteTransaction(int id)
+        public async Task<ActionResult<List<TransactionResDto>>> DeleteTransaction(int id)
         {
             await _transaction.DeleteTransaction(id);
 

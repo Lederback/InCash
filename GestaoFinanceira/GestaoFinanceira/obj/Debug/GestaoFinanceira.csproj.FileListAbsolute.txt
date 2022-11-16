@@ -66,3 +66,11 @@ C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\D
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.exe
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.pdb
 C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\obj\Debug\GestaoFinanceira.csproj.SuggestedBindingRedirects.cache
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\Newtonsoft.Json.dll
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Web.Http.dll
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\Newtonsoft.Json.xml
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Web.Http.xml
+C:\Users\T-Gamer\Documents\GitHub\InCash\GestaoFinanceira\GestaoFinanceira\bin\Debug\System.Web.Http.WebHost.xml
